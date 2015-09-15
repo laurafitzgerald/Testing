@@ -17,5 +17,15 @@ public class InformalTestCounter {
 	    if (result != 0) {
 	        System.out.println("Boundry case failed");
 	    }
+	    
+	    counter.value = 0;
+	    
+	    for (int i = 2; i <20 ; i++) {
+	        counter.step(3);
+	        System.out.println(counter.value);
+	    }
+	    
+	    
+	    
 	}
 }

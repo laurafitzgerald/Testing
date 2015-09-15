@@ -20,11 +20,16 @@ public class InformalTestCounter {
 	    
 	    counter.value = 0;
 	    
-	    for (int i = 2; i <20 ; i++) {
+	    for (int i = 2; i <10 ; i++) {
 	        counter.step(3);
 	        System.out.println(counter.value);
 	    }
 	    
+	    	result = counter.step(3);
+	    if (result!=7){
+	    	
+	    	System.out.println("Step case failed");
+	    }
 	    
 	    
 	}

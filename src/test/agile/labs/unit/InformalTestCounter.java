@@ -13,6 +13,7 @@ public class InformalTestCounter {
 	        counter.increment();
 	    }
 	    result = counter.increment();
+	
 	    if (result != 0) {
 	        System.out.println("Boundry case failed");
 	    }

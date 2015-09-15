@@ -1,7 +1,7 @@
 package agile.labs.unit;
 
 public class Counter {
-    int value ;
+    int value;
     int limit;
 
     public Counter(int limit) {
@@ -14,7 +14,7 @@ public class Counter {
     }
 
     public int increment() {
-        if ( ++value >= limit) {  
+        if ( ++value > limit) {  
             value = 0;
         }
         return value ;

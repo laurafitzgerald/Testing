@@ -56,6 +56,59 @@ public class TestModule extends TestCase{
         assertNull("Invalid topic found incorrectly",result) ;
     }
     
+    public void testmergeTopic(){
+    	
+    	Topic result;
+    	module.addTopic(topic1);
+    	module.addTopic(topic2);
+    	module.addTopic(topic3);
+    	
+    	// test return null if first topic is not found
+    	result = module.mergeTopic("topic name that does not exists", topic1.getName(), "New Topic Name");
+    	assertNull("First Topic of Merge not founde", result);
+    	
+    	//test return null if second topic is not found
+    	result = module.mergeTopic(topic1.getName(), "topic name that does not exist", "New Topic Name");
+    	assertNull("Second Topic of MErge not found", result);
+    	
+    	//test return topic when topic is merged
+    	result = module.mergeTopic(topic1.getName(), topic2.getName(), "New Topic Name");
+    	result = module.findTopic("New Topic Name");
+    	assertNotNull("Merged Topic Found", result);
+    	
+    	//test that topics have been removed
+    	assertNull(module.findTopic(topic1.getName()));
+    	assertNull(module.findTopic(topic2.getName()));
+    	
+    	
+    	//test search for merged topic after merge
+    	
+    	
+    	
+    }
+    
+    public void testremoveTopic(){
+    	
+    	module.addTopic(topic1);
+    	module.addTopic(topic2);
+    	
+    	//test that a null value is returned when topicName is not currently in the list
+    	Topic result = module.removeTopic("topic name");
+    	assertNull("Topic cannot be found", result);
+    	
+    	//test that the topic is removed 
+    	module.removeTopic(topic2.getName());
+    	result = module.findTopic(topic2.getName());
+    	assertNull("Topic cannot be found after removal", result);
+    	
+    	
+    	//test that a topic is returned correctly after removal
+    	result = module.removeTopic(topic1.getName());
+    	assertEquals(topic1, result);
+    	
+    	
+    }
+    
 }
 	
 

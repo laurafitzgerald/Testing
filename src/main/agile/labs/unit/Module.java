@@ -37,6 +37,33 @@ public Module(String name, int noLectures, int credits) {
       }
       return result ;
  }
+ 
+ public Topic mergeTopic(String oldTopic1Name, String oldTopic2Name, String mergedTopicName){
+	 
+	 for (Topic t1: topics){
+		 if(t1.getName().equals(oldTopic1Name)){
+			 
+			 for(Topic t2: topics){
+				 
+				 if(t2.getName().equals(oldTopic2Name)){
+					 
+					 Topic newTopic = new Topic(t1.getNoLectures()+t2.getNoLectures(), mergedTopicName);
+					 topics.add(newTopic);
+					 topics.remove(t1);
+					 topics.remove(t2);
+					 return newTopic;
+					 
+				 }
+			 }
+			 
+			 return null;
+			 
+		 }
+	 }
+	 
+	 
+	 return null;
+ }
 
  private int computeTopicTotal() {
      int result = 0 ;
@@ -46,4 +73,17 @@ public Module(String name, int noLectures, int credits) {
      return result;
  }
 	
+ public Topic removeTopic(String topicName){
+	 
+	 for (Topic t :topics){
+		 
+		 if(t.getName().equals(topicName)){
+			 topics.remove(t);
+			 return t;
+		 }
+		 
+	 }
+	 
+	 return null;
+ }
 }

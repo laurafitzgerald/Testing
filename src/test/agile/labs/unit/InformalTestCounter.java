@@ -25,7 +25,7 @@ public class InformalTestCounter {
 	        System.out.println(counter.value);
 	    }
 	    
-	    	result = counter.step(3);
+	    result = counter.step(3);
 	    if (result!=7){
 	    	
 	    	System.out.println("Step case failed");

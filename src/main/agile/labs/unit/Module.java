@@ -38,6 +38,14 @@ public Module(String name, int noLectures, int credits) {
       return result ;
  }
  
+ public Topic changeTopic(String name, Topic changes) {
+     Topic currentTopic = findTopic(name); 
+     Topic newTopic = new Topic(changes.getNoLectures(), changes.getName());
+     removeTopic(currentTopic.getName() );
+     addTopic(newTopic) ;
+     return newTopic;
+ }
+
  public Topic mergeTopic(String oldTopic1Name, String oldTopic2Name, String mergedTopicName){
 	 
 	 for (Topic t1: topics){
